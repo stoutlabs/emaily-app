@@ -1,5 +1,5 @@
 {
-  "name": "email-app",
+  "name": "server",
   "version": "0.1.0",
   "description": "A subscription email campaign app",
   "main": "index.js",
@@ -9,6 +9,7 @@
     "yarn": "1.3.2"
   },
   "dependencies": {
+    "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
     "mongoose": "^5.0.9",
@@ -18,7 +19,9 @@
   "devDependencies": {},
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "StoutLabs",
