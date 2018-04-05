@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import StripePayments from "./StripePayments";
+
 class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -14,11 +16,17 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
-          <li>
+        return [
+          <li key="1">
+            <StripePayments />
+          </li>,
+          <li key="2" style={{ margin: "0 12px" }}>
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key="3">
             <a href="/api/logout">Logout</a>
           </li>
-        );
+        ];
     }
   }
 
