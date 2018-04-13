@@ -21,11 +21,11 @@ The app flow is as follows:
 
 **Features:**
 
-* Node.js / Express.js backend
+* Custom Node.js / Express.js API backend
 * React / Redux frontend
 * Google OAuth authentication
 * Stripe API payments
-* MongoDB data storage
+* MongoDB data storage (with Mongoose)
 * SendGrid API for mass emails and click tracking
 * "Wizard" style form for creating surveys
 * Basic stying via Materialize CSS
@@ -34,4 +34,10 @@ The app flow is as follows:
 
 **Notes:**
 
-I definitely learned a TON from this course! My overall React/Redux comfort increased dramatically. I'm looking forward to taking this knowledge elsewhere, to build some interesting things in the near future!
+* Styling was kept SUPER minimal for this app. The focus was on functionality!
+
+* SendGrid's free accounts are only good for 30 days, so this will app not have a preview/demo link available.
+
+* To test out the demo, you wll need a Stripe (developer) account and a SendGrid account. You'll also need a Google+ OAuth API key.
+
+* I definitely learned a TON from this course! My overall React/Redux comfort levels increased dramatically, as well as my general ES6 JavaScript knowledge. I'm really looking forward to expanding upon this material and creating some interesting things in the near future!
