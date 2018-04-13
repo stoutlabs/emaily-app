@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const keys = require("./config/keys");
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI);
@@ -14,6 +15,7 @@ const app = express();
 
 // middleware
 app.use(bodyParser.json());
+
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -28,6 +30,7 @@ app.use(passport.session());
 // routes
 require("./routes/authRoutes")(app); //same as: const authRoutes = require... (and then 2nd line: authRoutes(app) )
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   //Express will serve production assets (css,images,js,etc)

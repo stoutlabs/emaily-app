@@ -9,23 +9,30 @@
     "yarn": "1.5.1"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
+    "localtunnel": "^1.9.0",
+    "lodash": "^4.17.5",
     "mongoose": "^5.0.9",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^4.0.4",
     "stripe": "^5.7.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "forever": "^0.15.3"
+  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\" \"yarn run webhook\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "forever sendgrid_webhook.js"
   },
   "author": "StoutLabs",
   "license": "MIT"
